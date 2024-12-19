@@ -52,3 +52,16 @@ let changeText = () => {
 // Trigger the text change function initially and at intervals
 changeText();
 setInterval(changeText, 3000); // Adjusted interval to 3000ms for a smoother transition
+// circle skil------------------------------------------>
+const circle = document.querySelectorAll('.circle');
+circle.forEach(elem=>{
+    var dots = elem.getAttribute("date-dots");
+    var marked = elem.getAttribute("data-percent");
+    var percent = Math.floor(dots*mark/100);
+    var poins = "";
+    var rotate = 360 / dots;
+
+    for(let i=0 ; i < dots ; i++){
+        points +='       <div class="points" style="--i:1;"></div'
+    }
+})
