@@ -539,7 +539,7 @@ a.btn:nth-child(2)::before{
     left: 50%;
     transform: translate(-50% , -50%);
 }
-.box .text .small{
+.box .text small{
     display: block;
     font-weight: 600;
 
@@ -550,18 +550,23 @@ a.btn:nth-child(2)::before{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fdfdfd;
+   
 
 }
 .circle .points{
-    width: 5px;
+    width: 2px;
     height: 10px;
     background-color: var(--bg-color);
     position: absolute;
     border-radius: 3px;
-    transform: rotate(calc(var(--i)*120deg))translateY(-45px);
+    transform: rotate(calc(var(--i)*var(--rot)))translateY(-45px);
+   
+}
+.points.marked{
     animation:glow 0.4s linear forwards;
-    animation-delay: calc(var(--i)*0,05s);
+    animation-delay: calc(var(--i)*0.05s);
+   
+
 }
 
 

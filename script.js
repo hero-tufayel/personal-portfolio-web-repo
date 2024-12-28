@@ -53,15 +53,30 @@ let changeText = () => {
 changeText();
 setInterval(changeText, 3000); // Adjusted interval to 3000ms for a smoother transition
 // circle skil------------------------------------------>
-const circle = document.querySelectorAll('.circle');
-circle.forEach(elem=>{
-    var dots = elem.getAttribute("date-dots");
-    var marked = elem.getAttribute("data-percent");
-    var percent = Math.floor(dots*mark/100);
-    var poins = "";
-    var rotate = 360 / dots;
+const circles = document.querySelectorAll('.circle');
+circles.forEach(elem => {
+    // Retrieve attributes
+    const dots = parseInt(elem.getAttribute("data-dots"), 10) || 0; // Default to 0 if invalid
+    const marked = parseInt(elem.getAttribute("data-percent"), 10) || 0;
 
-    for(let i=0 ; i < dots ; i++){
-        points +='       <div class="points" style="--i:1;"></div'
+    // Calculate the number of marked dots
+    const percent = Math.floor((dots * marked) / 100);
+    let points = "";
+    const rotate = 360 / dots; // Rotation for each point
+
+    // Generate the points
+    for (let i = 0; i < dots; i++) {
+        points += `<div class="points" style="--i:${i}; --rot:${ rotate}deg"></div>`;
     }
-})
+
+    // Update the element's inner HTML
+    elem.innerHTML = points;
+
+
+    const pointsMarked = elem.querySelectorAll('.points');
+    for(let i =0; i<percent ;i++){
+        pointsMarked[i].classList.add('marked')
+    }
+});
+
+
